@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+	<title>CS290 A5</title>
+  <script src="script.js" defer="true"></script>
+</head>
+<body>
+	<h1>
+    CS290 A5
+  </h1>
+  <form id="weather">
+    <fieldset>
+      <legend>Open Weather Map API</legend>
+      <fieldset>
+        <label for="city_input">City Name</label>
+        <input type="text" name="city_input" id="city"/>
+      </fieldset>
+      <fieldset>
+        <label for="zip_input">Zip Code</label>
+        <input type="number" name="zip_input" id="zip"/>
+      </fieldset>
+      <fieldset>
+        <label for="country_input">Country Code</label>
+        <input type="text" name="country_input" id="country"/>
+      </fieldset>
+      <fieldset>
+        <input id="weathersubmit" value="Submit" type="button"/>
+      </fieldset>
+    </fieldset>
+  </form>
+  <form id="post">
+    <fieldset>
+      <legend>Some POST Data</legend>
+      <fieldset>
+        <label for="text_input">Text here:</label>
+        <input type="text" name="text_input"/>
+        <input id="postsubmit" value="Submit" type="button"/>
+      </fieldset>
+    </fieldset>
+  </form>
+  <h2>
+    Form 1 Response
+  </h2>
+  <span id="form1"></span>
+  <h2>
+    Form 2 Response
+  </h2>
+  <span id="form2"></span>
+</body>
+</html>
