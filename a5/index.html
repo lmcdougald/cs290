@@ -34,7 +34,7 @@
       <legend>Some POST Data</legend>
       <fieldset>
         <label for="text_input">Text here:</label>
-        <input type="text" name="text_input"/>
+        <input type="text" name="text_input" id="postdata"/>
         <input id="postsubmit" value="Submit" type="button"/>
       </fieldset>
     </fieldset>
@@ -42,7 +42,22 @@
   <h2>
     Form 1 Response
   </h2>
-  <span id="form1"></span>
+  <div id="form1">
+    <table>
+      <tr>
+        <td>Temperature (Kelvin):</td><td id="temp"></td>
+      </tr>
+      <tr>
+        <td>Feels Like (Kelvin):</td><td id="feels"></td>
+      </tr>
+      <tr>
+        <td>Expected Minimum (Kelvin):</td><td id="min"></td>
+      </tr>
+      <tr>
+        <td>Expected Maximum (Kelvin):</td><td id="max"></td>
+      </tr>
+    </table>
+  </div>
   <h2>
     Form 2 Response
   </h2>
