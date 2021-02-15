@@ -4,7 +4,10 @@ function weather()
   var zip = document.getElementById("zip").value;
   var country = document.getElementById("country").value;
   var url = "";
-  var output = document.getElementById("form1");
+  var temp = document.getElementById("temp");
+  var feels = document.getElementById("feels");
+  var min = document.getElementById("min");
+  var max = document.getElementById("max");
   if (city !== "")
   {
     url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "," + country + "&appid=0e218b3b9b0c947c500e95cd52a23203";
@@ -18,7 +21,12 @@ function weather()
   {
     console.log(e);
     console.log(e.target.response);
-    output.innerText = e.target.response;
+    
+    var response = JSON.parse(e.target.response);
+    temp.innerText = response.main.temp;
+    feels.innerText = response.main.feels_like;
+    min.innerText = response.main.temp_min;
+    max.innerText = response.main.temp_max;
   });
   req.open("GET", url);
   req.send();
@@ -27,13 +35,13 @@ function weather()
 function post()
 {
   var text = document.getElementById("postdata").value;
-  var url = "https://postbin.org/post";
+  var url = "https://httpbin.org/post";
   var output = document.getElementById("form2");
   var req = new XMLHttpRequest();
   req.addEventListener("load", function(e)
   {
-    console.log(e.target.response);
-    output.innerText = e.target.response;
+    var response = JSON.parse(e.target.response);
+    output.innerText = response.data;
   });
   req.open("POST", url);
   req.send(text);
@@ -51,6 +59,7 @@ document.getElementById("weather").onkeydown = function(e)
 document.getElementById("weathersubmit").onclick = function(e)
 {
   weather();
+  e.preventDefault();
 }
 
 document.getElementById("post").onkeydown = function(e)
@@ -65,4 +74,5 @@ document.getElementById("post").onkeydown = function(e)
 document.getElementById("postsubmit").onclick = function(e)
 {
   post();
+  e.preventDefault();
 }
