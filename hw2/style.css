@@ -1,0 +1,43 @@
+table, th, td
+{
+	border: 1px solid black;
+	border-collapse: collapse;
+	padding: 3px;
+}
+
+tbody td:first-child
+{
+	font-style: italic;
+}
+
+tbody tr:nth-child(odd)
+{
+	background-color: lightblue;
+}
+
+tbody tr:nth-child(even)
+{
+	background-color: lightgreen;
+}
+
+#outer-content
+{
+	margin: 20px 0 5px 0;
+	background: lightpink;
+	width: 75vw;
+	padding: 20px;
+	text-align: center;
+}
+
+#inner-content
+{
+	background: lightblue;
+	width: 75%;
+	text-align: center;
+	margin: 0 12.5%;
+}
+
+.forms
+{
+	display: block;
+}
