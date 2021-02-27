@@ -1,0 +1,17 @@
+{
+  "name": "hw5-lmcdo-cs90",
+  "version": "1.0.0",
+  "description": "HW5 with express and node.js",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "author": "Luke McDougald",
+  "license": "BSD-4-Clause",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.1",
+    "express-session": "^1.11.3"
+  }
+}
