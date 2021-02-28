@@ -1,4 +1,4 @@
-build-job:
+build:
   image: docker:19.03.12
   stage: build
   services:
