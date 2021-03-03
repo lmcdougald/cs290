@@ -1,1 +1,31 @@
-<h1>The Home Page</h1>
+{{#if isPost}}
+<h1>This was a POST Request!</h1>
+<h2>Post Data</h2>
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Value</th>
+	</tr>
+	{{#each postList}}
+		<tr>
+			<td>{{name}}</td>
+			<td>{{value}}</td>
+		</tr>
+	{{/each}}
+</table>
+{{else}}
+<h1>This was a GET Request!</h1>
+{{/if}}
+<h2>Query Data</h2>
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Value</th>
+	</tr>
+	{{#each queryList}}
+		<tr>
+			<td>{{name}}</td>
+			<td>{{value}}</td>
+		</tr>
+	{{/each}}
+</table>
