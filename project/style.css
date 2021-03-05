@@ -1,0 +1,365 @@
+body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    display: flex;
+}
+
+ul, h1
+{
+    margin: .75em 0 .75em 0;
+}
+
+h1
+{
+    font-size: 2.5em;
+}
+
+p
+{
+    padding-top:15px;
+    font-size: 1.25em;
+}
+
+li
+{
+    font-size:1.25em;
+}
+
+a:focus, input:focus, div:focus, button:focus
+{
+    outline: none;
+}
+
+@font-face
+{
+    font-family: opensanslight;
+    src: url(../css/opensans/OpenSans-Light.ttf);
+}
+
+#home-header
+{
+    margin: 0;
+    
+}
+
+#header
+{
+    flex: 0 0 44px;
+    width: 100%;
+    background-color: #00AE58;
+    max-height: 44px;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-family: sans-serif; /*was bold*/
+    box-shadow: 0 0 2px 2px gray;
+    text-decoration: none;
+}
+
+#sidebar
+{
+    flex: 0 0 42px;
+    height: 100vh;
+    position: relative;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: #090909;
+    z-index: 2;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.sidebar-head
+{
+    background-color: #131916; /*#161C19;*/
+    height: 42px;
+    width: 100%;
+}
+
+#menu
+{
+    margin-left: 3px;
+    margin-top: 4px;
+    border: none;
+    padding: 0;
+    height: 30px;
+    width: 36px;
+    position: absolute;
+    z-index: 5;
+    left: -42px;
+}
+
+#home-icon
+{
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 3px;
+    border: none;
+    padding: 0;
+    position: relative;
+    /*text-align: text-top;*/
+}
+
+#myhome-icon
+{
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: center;
+    border: none;
+    padding-left: 15px;
+    display: inline;
+    position: relative;
+    /*text-align: text-top;*/
+}
+
+#logo
+{
+    padding: 0;
+    bottom: 11px;
+    border: 0;
+    display: inline;
+    position: relative;
+    font-size: 1.5em;
+    color: #ffffff;
+}
+
+#content
+{
+    flex: 1 1 95vw;
+    position: relative;
+    z-index: 0;
+    height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 0 5px;
+}
+
+#sidebar-head
+{
+    flex: 0 0 44px;
+}
+
+#sidebar-dynam
+{
+    flex: 1 0 auto;
+    background-color: #141414;
+}
+
+#sidebar-foot
+{
+    flex: 0 1 100vh;
+    background-color: #141414;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.sidemenu-out
+{
+    left: 0;
+}
+
+.sidemenu-in
+{
+    left: -240px;
+}
+
+.sidebar-row
+{
+    height: 46px;
+    width: 0;
+    z-index: 3;
+    position: relative;
+    margin-left: 42px;
+    color: gray;
+    background-color: inherit;
+    flex: 0 0 46px;
+}
+
+.sidebar-footer
+{
+    flex: 0 1 auto;
+    height: 100%;
+    width: 0;
+    z-index: 3;
+    position: relative;
+    margin-left: 42px;
+    color: gray;
+    background-color: inherit;
+}
+
+.sidebar-iconfill
+{
+    position: absolute;
+    z-index: 5;
+    height: 100%;
+    width: 42px;
+    left: -42px;
+    background-color: #090909;
+    background-clip: padding-box;
+}
+
+.sidebar-rowicon
+{
+    padding-top: 2px;
+    padding-bottom: 2px;
+    position: absolute;
+    z-index: 5;
+    height: 42px;
+    width: 42px;
+    left: -42px;
+    background-color: #090909;
+}
+
+.sidebar-rowbutton
+{
+    position: absolute;
+    z-index: 4;
+    height: 100%;
+    width: 240px;
+    background-color: inherit;
+}
+
+.sidebar-rowhover
+{
+    position: absolute;
+    z-index: 6;
+    height: 100%;
+    width: 282px;
+    left: -42px;
+    background-clip: padding-box;
+}
+
+.sidebar-rowhover:hover,
+.sidebar-rowhover:focus
+{
+    box-shadow: inset 0 9px 8px -10px rgba(0,0,0,.4), inset 0 -9px 8px -10px rgba(0,0,0,.4);
+    background-color: rgb(128, 128, 128);
+    background-color: rgba(128, 128, 128, .3);
+}
+
+.rowhover-in
+{
+    left: -282px;
+}
+
+@keyframes slidein
+{
+    from
+    {
+        left: 0;
+    }
+
+    to
+    {
+        left: -302px;
+        left: -240px;
+    }
+}
+
+@keyframes slideout
+{
+    from
+    {
+        left: -302px;
+        left: -240px;
+    }
+
+    to
+    {
+        left: 0;
+    }
+}
+
+@keyframes rowhoverin
+{
+    from
+    {
+        left: -42px;
+    }
+
+    to
+    {
+        left: -282px;
+    }
+}
+
+@keyframes rowhoverout
+{
+    from
+    {
+        left: -282px;
+    }
+
+    to
+    {
+        left: -42px;
+    }
+}
+
+.menu
+{
+    width: 100%;
+    height: 44px;
+    background-color: black;
+}
+
+.menu-icon
+{
+    height: 42px;
+    width: 42px;
+    left: -42px;
+    background-color: #090909;
+}
+
+h1, h2, h3, p
+{
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+h1
+{
+    font-size: 1.8em;
+    margin: .3em;
+}
+
+p
+{
+    font-size: 1.2em;
+    margin: .3em;
+}
+
+textarea, input, label, td, li
+{
+    font-family: sans-serif;
+    font-weight: 400;
+}
+
+.sidebar-text
+{
+    padding-left: 10px;
+    margin-top: 13px;
+    font-family: sans-serif;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 1.2em;
+}
+
+.navbar-nav
+{
+    margin-top: 12px;
+}
+
+#slideshow-img
+{
+    width: 86vw;
+    max-height: 60vh;
+}
