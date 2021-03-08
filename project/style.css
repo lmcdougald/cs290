@@ -358,8 +358,28 @@ textarea, input, label, td, li
     margin-top: 12px;
 }
 
+#slideshow
+{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
 #slideshow-img
 {
-    width: 86vw;
+    width: 82vw;
     max-height: 60vh;
+    background-color: lightgray;
+    border: black 3px solid;
+}
+
+.button
+{
+    width: 2.5em;
+}
+
+.button:hover
+{
+    background-color: lightgray;
 }
