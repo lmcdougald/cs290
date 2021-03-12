@@ -6,6 +6,7 @@ body
     padding: 0;
     border: none;
     display: flex;
+    overflow: hidden;
 }
 
 ul, h1
@@ -133,6 +134,8 @@ a:focus, input:focus, div:focus, button:focus
 
 #content
 {
+    overflow-x: hidden;
+    max-width: 95%;
     flex: 1 1 95vw;
     position: relative;
     z-index: 0;
@@ -360,6 +363,8 @@ textarea, input, label, td, li
 
 #slideshow
 {
+    overflow: hidden;
+    width: 86vw;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
@@ -368,7 +373,7 @@ textarea, input, label, td, li
 
 #slideshow-img
 {
-    width: 82vw;
+    flex: 1 1 82vw;
     max-height: 60vh;
     background-color: lightgray;
     border: black 3px solid;
