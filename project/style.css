@@ -134,7 +134,7 @@ a:focus, input:focus, div:focus, button:focus
 
 #content
 {
-    overflow-x: hidden;
+    overflow: hidden;
     max-width: 95%;
     flex: 1 1 95vw;
     position: relative;
@@ -142,6 +142,7 @@ a:focus, input:focus, div:focus, button:focus
     height: 100vh;
     display: flex;
     flex-flow: column nowrap;
+    align-items: center;
     padding: 0 5px;
 }
 
@@ -322,7 +323,7 @@ a:focus, input:focus, div:focus, button:focus
     background-color: #090909;
 }
 
-h1, h2, h3, p
+h1, h2, h3
 {
     font-weight: bold;
     font-family: sans-serif;
@@ -336,6 +337,7 @@ h1
 
 p
 {
+    font-family: sans-serif;
     font-size: 1.2em;
     margin: .3em;
 }
@@ -379,6 +381,12 @@ textarea, input, label, td, li
     border: black 3px solid;
 }
 
+#vpc-img
+{
+    flex: 0 1 30vh;
+    width: 65vw;
+}
+
 .button
 {
     width: 2.5em;
@@ -387,4 +395,9 @@ textarea, input, label, td, li
 .button:hover
 {
     background-color: lightgray;
+}
+
+#description
+{
+    width: 60vw;
 }
