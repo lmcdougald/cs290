@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+	<title>Test</title>
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+    <script src="site.js" defer="true"></script>
+</head>
+<body>
+	<h1>HW 6 Luke</h1>
+	<form>
+		<fieldset>
+			<legend>Submit Changes</legend>
+			<fieldset>
+				<label for="id_input">Edit ID:</label>
+				<select>
+					<option value="0">0: Stands for Add</option>
+				</select>
+			</fieldset>
+			<fieldset>
+				<label for="name_input">Workout Name:</label>
+				<input type="text" name="name_input"/>
+			</fieldset>
+			<fieldset>
+				<label for="reps_input">Reps:</label>
+				<input type="number" name="reps_input"/>
+			</fieldset>
+			<fieldset>
+				<label for="weight_input">Weight:</label>
+				<input type="number" name="weight_input"/>
+			</fieldset>
+			<fieldset>
+				<label for="date_input">Date:</label>
+				<input type="date" name="date_input"/>
+			</fieldset>
+			<fieldset>
+				<label for="lbs_input">Using LBs? </label>
+				<input type="checkbox" name="lbs_input"/>
+			</fieldset>
+			<button>Submit Changes</button>
+		</fieldset>
+	</form>
+	<div id="output"></div>
+</body>
+</html>
