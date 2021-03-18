@@ -1,5 +1,4 @@
 var express = require('express');
-var exphbs = require('express-handlebars');
 var mysql = require('mysql2');
 var bodyParser = require('body-parser');
 var app = express();
@@ -9,11 +8,7 @@ app.use(bodyParser.json());
 
 app.use(express.static('public'));
 
-var hbs = exphbs.create({ defaultLayout: 'main.hbs'});
 var args = process.argv;
-
-app.engine('hbs', hbs.engine);
-app.set('view engine', 'hbs');
 
 var pool = mysql.createPool({
     host  : args[2],
@@ -38,7 +33,7 @@ app.get('/reset-table', function(req, res, next)
         pool.query(createString, function(err)
         {
             context.results = "Table reset";
-            res.render('home', context);
+            res.send(context);
         })
     });
 });
@@ -53,8 +48,8 @@ app.get('/insert',function(req, res, next){
             next(err);
             return;
         }
-        context.results = "Inserted id " + result.insertId;
-        res.render('home', context);
+        context.results = result.insertId;
+        res.send(context);
     });
 });
 
@@ -69,7 +64,7 @@ app.get('/simple-update',function(req,res,next){
       return;
     }
     context.results = "Updated " + result.changedRows + " rows.";
-    res.render('home',context);
+    res.send(context);
   });
 });
 
@@ -91,7 +86,7 @@ app.get('/safe-update',function(req,res,next){
           return;
         }
         context.results = "Updated " + result.changedRows + " rows.";
-        res.render('home',context);
+        res.send(context);
       });
     }
   });
@@ -108,22 +103,24 @@ app.get('/show', function(req, res, next)
             return;
         }
         context.results = JSON.stringify(rows);
-        res.render('home', context);
+        context.prestring = rows;
+        res.send(context);
     });
 });
 
 
 
 app.use(function(req,res){
+    res.type('plain/text');
     res.status(404);
-    res.render('404');
+    res.send('404');
 });
 
 app.use(function(err, req, res, next){
     console.error(err.stack);
     res.type('plain/text');
     res.status(500);
-    res.render('500');
+    res.send('500');
 });
 
 app.listen(app.get('port'), function()
