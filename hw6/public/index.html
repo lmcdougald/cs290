@@ -13,34 +13,48 @@
 			<legend>Submit Changes</legend>
 			<fieldset>
 				<label for="id_input">Edit ID:</label>
-				<select>
+				<select id="id">
 					<option value="0">0: Stands for Add</option>
 				</select>
 			</fieldset>
 			<fieldset>
 				<label for="name_input">Workout Name:</label>
-				<input type="text" name="name_input"/>
+				<input type="text" id="name" name="name_input"/>
 			</fieldset>
 			<fieldset>
 				<label for="reps_input">Reps:</label>
-				<input type="number" name="reps_input"/>
+				<input type="number" id="reps" name="reps_input"/>
 			</fieldset>
 			<fieldset>
 				<label for="weight_input">Weight:</label>
-				<input type="number" name="weight_input"/>
+				<input type="number" id="weight" name="weight_input"/>
 			</fieldset>
 			<fieldset>
 				<label for="date_input">Date:</label>
-				<input type="date" name="date_input"/>
+				<input type="date" id="date" name="date_input"/>
 			</fieldset>
 			<fieldset>
 				<label for="lbs_input">Using LBs? </label>
-				<input type="checkbox" name="lbs_input"/>
+				<input type="checkbox" id="lbs" name="lbs_input"/>
 			</fieldset>
-			<button>Submit Changes</button>
-			<button>Reset</button>
+			<button id="submit">Submit Changes</button>
+			<button id="reset">Reset</button>
+			<button id="reload">Reload</button>
 		</fieldset>
 	</form>
-	<div id="output"></div>
+	<table>
+		<thead>
+			<trow>
+				<th class="hidden">id</th>
+				<th>name</th>
+				<th>reps</th>
+				<th>weight</th>
+				<th>date</th>
+				<th>lbs</th>
+				<th>actions</th>
+			</trow>
+		</thead>
+		<tbody id="output"></tbody>
+	</table>
 </body>
 </html>

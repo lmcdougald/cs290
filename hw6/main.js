@@ -41,55 +41,74 @@ app.get('/reset-table', function(req, res, next)
 
 app.get('/insert',function(req, res, next){
     var context = {};
-    pool.query("INSERT INTO workouts (`name`) VALUES (?)", [req.query.c], function(err, result)
-    {
-        if(err)
+    pool.query("INSERT INTO workouts (`name`, `reps`,"+
+        " `weight`, `date`, `lbs`) VALUES (?, ?, ?, ?, ?)",
+        [req.query.c], 
+        function(err, result)
         {
-            next(err);
-            return;
-        }
-        context.results = result.insertId;
-        res.send(context);
-    });
+            if(err)
+            {
+                next(err);
+                return;
+            }
+            context.results = result.insertId;
+            res.send(context);
+        });
 });
 
 
 app.get('/simple-update',function(req,res,next){
-  var context = {};
-  mysql.pool.query("UPDATE todo SET name=?, done=?, due=? WHERE id=? ",
-    [req.query.name, req.query.done, req.query.due, req.query.id],
-    function(err, result){
-    if(err){
-      next(err);
-      return;
-    }
-    context.results = "Updated " + result.changedRows + " rows.";
-    res.send(context);
-  });
+    var context = {};
+    pool.query("UPDATE workouts SET name=?, reps=?, weight=?, date=?, lbs=? WHERE id=?",
+        [req.query.name, req.query.reps, req.query.weight, req.query.date,
+        req.query.lbs, req.query.id],
+        function(err, result)
+        {
+            if(err){
+                next(err);
+                return;
+            }
+            context.results = "Updated " + result.changedRows + " rows.";
+            res.send(context);
+        });
 });
 
 
-app.get('/safe-update',function(req,res,next){
-  var context = {};
-  mysql.pool.query("SELECT * FROM todo WHERE id=?", [req.query.id], function(err, result){
-    if(err){
-      next(err);
-      return;
-    }
-    if(result.length == 1){
-      var curVals = result[0];
-      mysql.pool.query("UPDATE todo SET name=?, done=?, due=? WHERE id=? ",
-        [req.query.name || curVals.name, req.query.done || curVals.done, req.query.due || curVals.due, req.query.id],
-        function(err, result){
-        if(err){
-          next(err);
-          return;
-        }
-        context.results = "Updated " + result.changedRows + " rows.";
-        res.send(context);
-      });
-    }
-  });
+app.get('/safe-update', function(req, res, next){
+    var context = {};
+    pool.query("SELECT * FROM workouts WHERE id=?",
+        [req.query.id], 
+        function(err, result)
+        {
+            if(err)
+            {
+                next(err);
+                return;
+            }
+            if(result.length == 1)
+            {
+                var curVals = result[0];
+                pool.query("UPDATE workouts SET name=?,"+
+                    " reps=?, weight=?, date=?, lbs=? WHERE id=?",
+                    [
+                        req.query.name || curVals.name,
+                        req.query.reps || curVals.reps,
+                        req.query.weight || curVals.weight,
+                        req.query.date || curVals.date,
+                        req.query.lbs || curVals.lbs,
+                        req.query.id
+                    ],
+                    function(err, result)
+                    {
+                        if(err){
+                            next(err);
+                            return;
+                        }
+                        context.results = "Updated " + result.changedRows + " rows.";
+                        res.send(context);
+                    });
+            }
+        });
 });
 
 
