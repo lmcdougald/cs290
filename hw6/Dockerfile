@@ -3,7 +3,6 @@ WORKDIR /app
 COPY package.json /app/package.json
 COPY package-lock.json /app/package-lock.json
 COPY main.js /app/main.js
-COPY views/ /app/views/
 COPY public/ /app/public/
 RUN npm install
 
