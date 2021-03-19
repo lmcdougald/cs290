@@ -1,5 +1,5 @@
 Database created using the following:
-	docker run --name hw6_sql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=asdf1234 -e MYSQL_DATABASE cs290 -d mysql
+	docker run --name hw6_sql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=asdf1234 -e MYSQL_DATABASE=cs290 -d mysql
 
 After configuring this database, I ran the following: 
 	docker build -t hw6_app .
